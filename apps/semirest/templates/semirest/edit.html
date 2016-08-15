@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <title>Edit Product {{id}}</title>
+  <link rel= 'stylesheet' type= 'text/css' href= "{% static 'semirest/edit.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+  <body>
+    <h1>Edit Product {{id}}</h1>
+    <form class="form-horizontal" action="/product/{{id}}/update" method="post" role="form">
+      {% csrf_token %}
+      <div class="form-group">
+        <label class="control-label col-sm-1" for="name">Name:</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="name" name= "name" placeholder="Enter name" value= "{{Product.name}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-1" for="pwd">Description:</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="Des" name= "description" placeholder="Enter Description" value= "{{Product.description}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-1" for="price">Price:</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="price" name= "price" placeholder="Enter price" value= "{{Product.price}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-4">
+          <button type="submit" class="btn btn-default">Update</button>
+        </div>
+      </div>
+  </body>
+</html>
